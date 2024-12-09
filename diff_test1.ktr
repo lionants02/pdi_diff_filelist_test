@@ -451,10 +451,10 @@
 นับไฟล์ที่ซ้ำกันโดยเก็บค่า file-sort ที่สูงสุดไว้ด้วย
 นำมากรองเฉพาะที่ ค่าสูงสุดเท่ากับค่า max
 
-เอาเฉพาะอันที่ นับได้ 1 เท่านั้น</note>
-      <xloc>1456</xloc>
+เอาเฉพาะอันที่ นับได้ 1 เท่านั้น ก็คือไฟลืที่ยังไม่เคยดึง</note>
+      <xloc>1328</xloc>
       <yloc>208</yloc>
-      <width>338</width>
+      <width>359</width>
       <heigth>138</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>12</fontsize>
@@ -474,10 +474,33 @@
     <notepad>
       <note>ตัวอย่างชื่อไฟล์ เป็น
 1_25-10-2024.txt</note>
-      <xloc>144</xloc>
-      <yloc>112</yloc>
+      <xloc>256</xloc>
+      <yloc>96</yloc>
       <width>147</width>
       <heigth>53</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>12</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>กลุ่มนี้เป็นการสร้างรายการไฟล์ใหม่
+โดยตัดรายการที่ซ้ำออกไป โดยรายการที่ซ้ำ
+จะเหลือเพียงแค่รายการเดียว อยู่ในไฟล์ของ วันแรกที่พบรายการ</note>
+      <xloc>928</xloc>
+      <yloc>896</yloc>
+      <width>425</width>
+      <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>12</fontsize>
       <fontbold>N</fontbold>
@@ -496,11 +519,6 @@
   </notepads>
   <order>
     <hop>
-      <from>Get raw list</from>
-      <to>add create_at</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>add create_at</from>
       <to>Replace create_at to date format</to>
       <enabled>Y</enabled>
@@ -512,11 +530,11 @@
     </hop>
     <hop>
       <from>convert to date</from>
-      <to>Sort create at</to>
+      <to>เรียงวันที่สร้าง จากมากไปน้อย</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort create at</from>
+      <from>เรียงวันที่สร้าง จากมากไปน้อย</from>
       <to>Add sequence</to>
       <enabled>Y</enabled>
     </hop>
@@ -552,7 +570,7 @@
     </hop>
     <hop>
       <from>Select values</from>
-      <to>Max sort-file</to>
+      <to>หาชื่อไฟล์ล่าสุด</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -566,37 +584,37 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Max sort-file</from>
+      <from>หาชื่อไฟล์ล่าสุด</from>
       <to>Merge join</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Merge join</from>
-      <to>ดูที่ค่า max เท่ากัน</to>
+      <to>เอาเฉพาะรายการที่พบในวันที่ล่าสุด</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ดูที่ค่า max เท่ากัน</from>
+      <from>เอาเฉพาะรายการที่พบในวันที่ล่าสุด</from>
       <to>D</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ดูที่ค่า max เท่ากัน</from>
+      <from>เอาเฉพาะรายการที่พบในวันที่ล่าสุด</from>
       <to>D 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>D</from>
-      <to>ดู count = 1</to>
+      <to>เอาเฉพาะที่ไม่มีรายการซ้ำ</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ดู count = 1</from>
+      <from>เอาเฉพาะที่ไม่มีรายการซ้ำ</from>
       <to>D 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ดู count = 1</from>
+      <from>เอาเฉพาะที่ไม่มีรายการซ้ำ</from>
       <to>D 4</to>
       <enabled>Y</enabled>
     </hop>
@@ -631,13 +649,28 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>file path optimize</from>
-      <to>เรียงไฟล์ที่เขียน เพื่อความรวดเร็ว</to>
+      <from>เรียงไฟล์ที่เขียน เพื่อความรวดเร็ว</from>
+      <to>Select values 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>เรียงไฟล์ที่เขียน เพื่อความรวดเร็ว</from>
-      <to>Select values 2</to>
+      <from>Get raw list</from>
+      <to>Select values 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 3</from>
+      <to>add create_at</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>file path optimize</from>
+      <to>Select values 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 4</from>
+      <to>เรียงไฟล์ที่เขียน เพื่อความรวดเร็ว</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -671,8 +704,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>192</yloc>
+      <xloc>1120</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -696,8 +729,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1360</xloc>
-      <yloc>528</yloc>
+      <xloc>1696</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -721,8 +754,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1267</xloc>
-      <yloc>444</yloc>
+      <xloc>1504</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -746,8 +779,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>528</yloc>
+      <xloc>2096</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -771,7 +804,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1456</xloc>
+      <xloc>1840</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -816,13 +849,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>192</yloc>
+      <xloc>224</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Max sort-file</name>
+    <name>หาชื่อไฟล์ล่าสุด</name>
     <type>GroupBy</type>
     <description/>
     <distribute>Y</distribute>
@@ -859,8 +892,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1072</xloc>
-      <yloc>304</yloc>
+      <xloc>1248</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -876,7 +909,7 @@
       <schema_name/>
     </partitioning>
     <join_type>RIGHT OUTER</join_type>
-    <step1>Max sort-file</step1>
+    <step1>หาชื่อไฟล์ล่าสุด</step1>
     <step2>นับ item</step2>
     <keys_1>
     </keys_1>
@@ -891,8 +924,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
-      <yloc>528</yloc>
+      <xloc>1296</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -930,8 +963,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
-      <yloc>192</yloc>
+      <xloc>624</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -969,8 +1002,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>464</yloc>
+      <xloc>480</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1009,13 +1042,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>304</yloc>
+      <xloc>1120</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Sort create at</name>
+    <name>เรียงวันที่สร้าง จากมากไปน้อย</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1051,8 +1084,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
-      <yloc>192</yloc>
+      <xloc>960</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1093,8 +1126,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>384</yloc>
+      <xloc>1120</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1143,8 +1176,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>544</yloc>
+      <xloc>1120</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1191,8 +1224,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>464</yloc>
+      <xloc>1120</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1260,8 +1293,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1648</xloc>
-      <yloc>528</yloc>
+      <xloc>2208</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1301,8 +1334,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>192</yloc>
+      <xloc>448</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1346,8 +1379,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>192</yloc>
+      <xloc>800</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1382,8 +1415,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>640</yloc>
+      <xloc>2096</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1487,13 +1520,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>464</yloc>
+      <xloc>224</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>ดู count = 1</name>
+    <name>เอาเฉพาะที่ไม่มีรายการซ้ำ</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1531,13 +1564,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1440</xloc>
-      <yloc>528</yloc>
+      <xloc>1840</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>ดูที่ค่า max เท่ากัน</name>
+    <name>เอาเฉพาะรายการที่พบในวันที่ล่าสุด</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1566,8 +1599,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1232</xloc>
-      <yloc>528</yloc>
+      <xloc>1504</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1618,8 +1651,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>624</yloc>
+      <xloc>1120</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1653,8 +1686,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>608</yloc>
+      <xloc>816</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1689,8 +1722,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>1056</yloc>
+      <xloc>816</xloc>
+      <yloc>1072</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1758,8 +1791,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>1168</yloc>
+      <xloc>816</xloc>
+      <yloc>1184</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1797,8 +1830,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>704</yloc>
+      <xloc>816</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1830,8 +1863,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>832</yloc>
+      <xloc>816</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1872,8 +1905,80 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
+      <xloc>816</xloc>
       <yloc>960</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>short_filename</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 4</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>item</name>
+        <rename/>
+      </field>
+      <field>
+        <name>short_filename</name>
+        <rename/>
+      </field>
+      <field>
+        <name>file_path_optimize</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
